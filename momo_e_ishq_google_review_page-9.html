@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOMO-E-ISHQ — Google Review</title>
+<style>
+body{font-family:Arial,sans-serif;background:#fff8f2;margin:0;padding:20px;color:#222}
+.wrap{max-width:520px;margin:auto}
+h1{text-align:center;margin:8px 0 4px}
+p{text-align:center;color:#555}
+.review{width:100%;text-align:left;background:white;border:1px solid #ddd;border-radius:12px;padding:14px;margin:7px 0;font-size:15px;line-height:1.45;cursor:pointer}
+.review span{letter-spacing:2px}
+#selected{display:none;background:#fff;border:2px solid #222;border-radius:12px;padding:15px;margin-top:15px}
+button.action{width:100%;padding:13px;border:0;border-radius:10px;margin-top:8px;font-size:16px;font-weight:bold;cursor:pointer}
+.copy{background:#222;color:#fff} .google{background:#eee;color:#111}
+.small{font-size:12px;color:#777;text-align:center;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>⭐ MOMO-E-ISHQ</h1>
+<p>अपना पसंदीदा Review चुनें</p>
+<button class="review" onclick="selectReview(0)"><span>★★★★★</span><br>Momos बहुत tasty और fresh थे। गरमा-गरम मिले, बहुत अच्छा लगा।</button>
+<button class="review" onclick="selectReview(1)"><span>★★★★★</span><br>Momo-E-Ishq के momos काफी अच्छे लगे। Taste और quality दोनों बढ़िया हैं।</button>
+<button class="review" onclick="selectReview(2)"><span>★★★★★</span><br>Paneer momos बहुत tasty थे। एक बार जरूर try करना चाहिए।</button>
+<button class="review" onclick="selectReview(3)"><span>★★★★★</span><br>Momos का taste अच्छा था और serving भी बढ़िया लगी। फिर से आएंगे।</button>
+<button class="review" onclick="selectReview(4)"><span>★★★★★</span><br>Fresh और गरमा-गरम momos मिले। बहुत अच्छा experience रहा।</button>
+<button class="review" onclick="selectReview(5)"><span>★★★★★</span><br>Taste काफी अच्छा लगा। Price के हिसाब से quality भी अच्छी है।</button>
+<button class="review" onclick="selectReview(6)"><span>★★★★★</span><br>Momos बहुत अच्छे थे और sauces भी tasty थे। Definitely recommended.</button>
+<button class="review" onclick="selectReview(7)"><span>★★★★★</span><br>पहली बार try किया और taste पसंद आया। दोबारा जरूर आएंगे।</button>
+<button class="review" onclick="selectReview(8)"><span>★★★★★</span><br>Simple, fresh और tasty momos। Family के साथ भी try कर सकते हैं।</button>
+<button class="review" onclick="selectReview(9)"><span>★★★★★</span><br>MOMO-E-ISHQ का taste अच्छा लगा। गरमा-गरम momos खाने का मजा ही अलग है।</button>
+<div id="selected">
+<b>आपका चुना हुआ Review:</b>
+<div id="text" style="margin-top:8px"></div>
+<button class="action copy" onclick="copyReview()">📋 Review Copy करें</button>
+<button class="action google" onclick="openGoogle()">Google पर Review करें →</button>
+</div>
+<p class="small">Review वही चुनें जो आपके वास्तविक अनुभव से मेल खाता हो। Google पर Post आप स्वयं करें।</p>
+</div>
+<script>
+const reviews = [\'Momos बहुत tasty और fresh थे। गरमा-गरम मिले, बहुत अच्छा लगा।\', \'Momo-E-Ishq के momos काफी अच्छे लगे। Taste और quality दोनों बढ़िया हैं।\', \'Paneer momos बहुत tasty थे। एक बार जरूर try करना चाहिए।\', \'Momos का taste अच्छा था और serving भी बढ़िया लगी। फिर से आएंगे।\', \'Fresh और गरमा-गरम momos मिले। बहुत अच्छा experience रहा।\', \'Taste काफी अच्छा लगा। Price के हिसाब से quality भी अच्छी है।\', \'Momos बहुत अच्छे थे और sauces भी tasty थे। Definitely recommended.\', \'पहली बार try किया और taste पसंद आया। दोबारा जरूर आएंगे।\', \'Simple, fresh और tasty momos। Family के साथ भी try कर सकते हैं।\', \'MOMO-E-ISHQ का taste अच्छा लगा। गरमा-गरम momos खाने का मजा ही अलग है।\'];
+let chosen = "";
+function selectReview(i){
+  chosen = reviews[i];
+  document.getElementById('text').textContent = chosen;
+  document.getElementById('selected').style.display='block';
+  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+async function copyReview(){
+  try {
+    await navigator.clipboard.writeText(chosen);
+    alert("Review copy हो गया। अब Google पर Review करें।");
+  } catch(e) {
+    alert("Review select हो गया। Text को दबाकर Copy करें।");
+  }
+}
+function openGoogle(){
+  window.open("https://share.google/8XCu8EiEeJRGQgl3p","_blank");
+}
+</script>
+</body>
+</html>
